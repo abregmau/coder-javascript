@@ -1,6 +1,6 @@
 //Variables globales
-const debug = false;
-const todayDate = new Date();
+const debug = true;
+const todayDate = new moment();
 
 //Clases
 
@@ -28,22 +28,38 @@ class asset {
     }
 
     calcAdditionalData() {
-        this.flow.dateISO = [];
-        for (let i=0; i < this.flow.date.length; i++) {
-            this.flow.dateISO[i] = convertFromStringToDate(this.flow.date[i]);
+        this.flow.dateNormalized = [];
+        for (let i = 0; i < this.flow.date.length; i++) {
+            this.flow.dateNormalized[i] = moment(
+                this.flow.date[i],
+                "DD/MM/YYYY"
+            );
         }
 
         this.flow.cashFlow = [];
-        for (let i=0; i < this.flow.amort.length; i++) {
-            if (todayDate < this.flow.dateISO[i]){
-                this.flow.cashFlow[i] = this.flow.amort[i] + this.flow.interest[i];
-            }
-            else {
+        for (let i = 0; i < this.flow.amort.length; i++) {
+            if (todayDate < this.flow.dateNormalized[i]) {
+                this.flow.cashFlow[i] =
+                    this.flow.amort[i] + this.flow.interest[i];
+            } else {
                 this.flow.cashFlow[i] = 0;
             }
         }
 
-        console.log(XIRR()*100)
+        if (this.paymentCurrency == "USD") {
+            this.flow.cashFlow.unshift(this.lastPrice.usd * -1);
+            this.flow.dateNormalized.unshift(todayDate.add(moment.duration("48:00:00")));
+
+        } else if (this.paymentCurrency == "ARS") {
+            this.flow.cashFlow.unshift(this.lastPrice.ars * -1);
+            this.flow.dateNormalized.unshift(todayDate.add(moment.duration("48:00:00")));
+
+        }
+
+
+        console.log((Math.sqrt((XIRR(this.flow.cashFlow, this.flow.dateNormalized)+1))-1)*2);
+        console.log(XIRR(this.flow.cashFlow, this.flow.dateNormalized));
+
         //ytmT2 = 0;
     }
 }
@@ -147,85 +163,10 @@ class grupAssets {
 
 //Funciones
 
-function convertFromStringToDate (dateString){
-    let datePieces = dateString.split('/');
-    return (new Date(datePieces[2], datePieces[1] - 1, datePieces[0]));
-}
-
 async function fetchDataJSON(url) {
     const response = await fetch(url);
     const json = await response.json();
     return json;
-}
-
-function XIRR(values, dates, guess) {
-    // Algorithm inspired by Apache OpenOffice
-
-    // Calculates the resulting amount
-    var irrResult = function (values, dates, rate) {
-        var r = rate + 1;
-        var result = values[0];
-        for (var i = 1; i < values.length; i++) {
-            result +=
-                values[i] /
-                Math.pow(
-                    r,
-                    moment(dates[i]).diff(moment(dates[0]), "days") / 365
-                );
-        }
-        return result;
-    };
-
-    // Calculates the first derivation
-    var irrResultDeriv = function (values, dates, rate) {
-        var r = rate + 1;
-        var result = 0;
-        for (var i = 1; i < values.length; i++) {
-            var frac = moment(dates[i]).diff(moment(dates[0]), "days") / 365;
-            result -= (frac * values[i]) / Math.pow(r, frac + 1);
-        }
-        return result;
-    };
-
-    // Check that values contains at least one positive value and one negative value
-    var positive = false;
-    var negative = false;
-    for (var i = 0; i < values.length; i++) {
-        if (values[i] > 0) positive = true;
-        if (values[i] < 0) negative = true;
-    }
-
-    // Return error if values does not contain at least one positive value and one negative value
-    if (!positive || !negative) return "#NUM!";
-
-    // Initialize guess and resultRate
-    var guess = typeof guess === "undefined" ? 0.1 : guess;
-    var resultRate = guess;
-
-    // Set maximum epsilon for end of iteration
-    var epsMax = 1e-10;
-
-    // Set maximum number of iterations
-    var iterMax = 50;
-
-    // Implement Newton's method
-    var newRate, epsRate, resultValue;
-    var iteration = 0;
-    var contLoop = true;
-    do {
-        resultValue = irrResult(values, dates, resultRate);
-        newRate =
-            resultRate -
-            resultValue / irrResultDeriv(values, dates, resultRate);
-        epsRate = Math.abs(newRate - resultRate);
-        resultRate = newRate;
-        contLoop = epsRate > epsMax && Math.abs(resultValue) > epsMax;
-    } while (contLoop && ++iteration < iterMax);
-
-    if (contLoop) return "#NUM!";
-
-    // Return internal rate of return
-    return resultRate;
 }
 
 async function main() {
@@ -234,6 +175,8 @@ async function main() {
     await groupAssetsTest.retrieveCorpBondData();
     await groupAssetsTest.retrieveCorpBondLiveData();
     groupAssetsTest.getAllPrice();
+
+    groupAssetsTest.corpBond.CRCEO.calcAdditionalData()
     console.log(groupAssetsTest);
 }
 
