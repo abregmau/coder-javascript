@@ -4,8 +4,8 @@
     "expiration": "10/01/2025",
     "paymentCurrency": "USD",
     "ticker": {
-        "ars": "CRCEO",
-        "usd": "CRCED"
+        "ars": "CRCJO",
+        "usd": "CRCJD"
     },
     "lastPrice": {
         "ars": 0,

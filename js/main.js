@@ -56,11 +56,12 @@ class asset {
 
         }
 
+        this.ytmT2 = (Math.sqrt((XIRR(this.flow.cashFlow, this.flow.dateNormalized)+1))-1)*2*100
 
-        console.log((Math.sqrt((XIRR(this.flow.cashFlow, this.flow.dateNormalized)+1))-1)*2);
-        console.log(XIRR(this.flow.cashFlow, this.flow.dateNormalized));
+        if(debug){
+            console.log(this.ticker.usd + ': ' + this.ytmT2 + '%')
+        }
 
-        //ytmT2 = 0;
     }
 }
 
@@ -86,7 +87,7 @@ class grupAssets {
             console.log(listAssets);
         }
 
-        for (var property in listAssets) {
+        for (let property in listAssets) {
             await fetchDataJSON(
                 "./json/" + listAssets[property] + ".json"
             ).then((json) => {
@@ -178,6 +179,8 @@ async function main() {
 
     groupAssetsTest.corpBond.CRCEO.calcAdditionalData()
     console.log(groupAssetsTest);
+
+    buildGeneralPanel(groupAssetsTest);
 }
 
 main();
