@@ -48,11 +48,13 @@ class asset {
 
         if (this.paymentCurrency == "USD") {
             this.flow.cashFlow.unshift(this.lastPrice.usd * -1);
-            this.flow.dateNormalized.unshift(todayDate.add(moment.duration("48:00:00")));
+            this.flow.dateNormalized.unshift(todayDate.clone());
+            this.flow.dateNormalized[0].add(moment.duration("48:00:00"));
 
         } else if (this.paymentCurrency == "ARS") {
             this.flow.cashFlow.unshift(this.lastPrice.ars * -1);
-            this.flow.dateNormalized.unshift(todayDate.add(moment.duration("48:00:00")));
+            this.flow.dateNormalized.unshift(todayDate.clone());
+            this.flow.dateNormalized[0].add(moment.duration("48:00:00"));
 
         }
 
@@ -160,6 +162,12 @@ class grupAssets {
             this.corpBond[property].getPrice(this.liveData);
         }
     }
+
+    getAllAdditionalData() {
+        for (const property in this.corpBond) {
+            this.corpBond[property].calcAdditionalData();
+        }
+    }
 }
 
 //Funciones
@@ -177,7 +185,7 @@ async function main() {
     await groupAssetsTest.retrieveCorpBondLiveData();
     groupAssetsTest.getAllPrice();
 
-    groupAssetsTest.corpBond.CRCEO.calcAdditionalData()
+    groupAssetsTest.getAllAdditionalData();
     console.log(groupAssetsTest);
 
     buildGeneralPanel(groupAssetsTest);

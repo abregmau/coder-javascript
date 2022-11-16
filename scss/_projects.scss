@@ -1,0 +1,44 @@
+/* Projects styles */
+
+.topPage--projects {
+    background-image: url("../assets/images/high-voltage-tower-2.jpg");
+}
+
+.img__projects {
+    padding: 16px;
+}
+
+/* End Projects styles */
+
+/* Medias Queries */
+
+/* Extra large devices (large laptops and desktops, 1200px and and down) */
+
+/* End Extra large devices (large laptops and desktops, 1200px and and down) */
+
+/* Large devices (laptops/desktops, 992px and down) */
+
+/* End Large devices (laptops/desktops, 992px and down) */
+
+/* Medium devices (landscape tablets, 768px and down) */
+
+@media (max-width: 768px) {
+
+    .img__projects {
+        padding: 0;
+        padding-bottom: 16px;
+    }
+
+}
+
+/* End Medium devices (landscape tablets, 768px and down) */
+
+/* Small devices (portrait tablets and large phones, 600px and down) */
+
+/* End Small devices (portrait tablets and large phones, 600px and down) */
+
+/* Extra small devices (phones, 480px and down) */
+
+/* End Extra small devices (phones, 480px and down) */
+
+/* End Medias Queries */

@@ -1,0 +1,19 @@
+{
+    "typeAsset": "CORP",
+    "description": "Bono corporativo de XXXX",
+    "expiration": "21/07/2023",
+    "paymentCurrency": "USD",
+    "ticker": {
+        "ars": "PTSTO",
+        "usd": "PTSTD"
+    },
+    "lastPrice": {
+        "ars": 0,
+        "usd": 0
+    },
+    "flow": {
+        "date": ["21/01/2022", "21/07/2022", "21/01/2023", "21/07/2023"],
+        "amort": [0.0, 0.0, 0.0, 100.0],
+        "interest": [3.69, 3.69, 3.69, 3.69]
+    }
+}

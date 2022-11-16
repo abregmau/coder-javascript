@@ -1,0 +1,89 @@
+/* Home styles */
+
+.topPage--home {
+    background-image: url("../assets/images/eolic-windmill.jpg");
+}
+
+.homeSection-2 {
+    padding: 0 50px;
+
+    display: grid;
+    grid-template-areas: "text img";
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+
+    margin-bottom: 50px;
+}
+
+.homeSection-3 {
+    padding: 0 50px;
+
+    display: grid;
+    grid-template-areas: "img text";
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+
+    margin-bottom: 50px;
+}
+
+.contents--2 {
+    grid-area: text;
+}
+
+.contents__img--2 {
+    grid-area: img;
+}
+
+.contents--3 {
+    grid-area: text;
+}
+
+.contents__img--3 {
+    grid-area: img;
+}
+
+/* End Home styles */
+
+/* Medias Queries */
+
+/* Extra large devices (large laptops and desktops, 1200px and and down) */
+
+/* End Extra large devices (large laptops and desktops, 1200px and and down) */
+
+/* Large devices (laptops/desktops, 992px and down) */
+
+/* End Large devices (laptops/desktops, 992px and down) */
+
+/* Medium devices (landscape tablets, 768px and down) */
+
+/* End Medium devices (landscape tablets, 768px and down) */
+
+/* Small devices (portrait tablets and large phones, 600px and down) */
+
+@media (max-width: 600px) {
+
+    .homeSection-2 {
+        grid-template-columns: 1fr;
+        grid-template-areas: "text" "img";
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    .homeSection-3 {
+        grid-template-columns: 1fr;
+        grid-template-areas: "text" "img";
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+}
+
+/* End Small devices (portrait tablets and large phones, 600px and down) */
+
+/* Extra small devices (phones, 480px and down) */
+
+/* End Extra small devices (phones, 480px and down) */
+
+/* End Medias Queries */

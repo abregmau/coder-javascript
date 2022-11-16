@@ -1,0 +1,35 @@
+/* Contact Us Styles */
+
+#titleContact {
+    text-align: center;
+    margin: 5px;
+
+    h1 {
+        font-size: 40px;
+    }
+    
+    p {
+        font-size: 20px;
+        margin: 5px;
+    }
+}
+
+.squareButton--dark {
+    @extend .squareButton;
+
+    /*Modifiers*/
+    border: 2px solid #272727;
+    color: #272727;
+    
+    &:hover {
+        /*Modifiers*/
+        color: white;
+    }
+    
+    &::before {
+        /*Modifiers*/
+        background: #272727;
+    }
+}
+
+/* End Contact Us Styles */

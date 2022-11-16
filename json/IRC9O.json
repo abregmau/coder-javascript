@@ -1,0 +1,25 @@
+{
+    "typeAsset": "CORP",
+    "description": "Bono corporativo de IRSA",
+    "expiration": "12/02/2023",
+    "paymentCurrency": "USD",
+    "ticker": {
+        "ars": "IRC9O",
+        "usd": "IRC9D"
+    },
+    "lastPrice": {
+        "ars": 0,
+        "usd": 0
+    },
+    "flow": {
+        "date": [
+            "12/02/2022",
+            "12/05/2022",
+            "12/08/2022",
+            "12/11/2022",
+            "12/02/2023"
+        ],
+        "amort": [0.0, 0.0, 0.0, 0.0, 100.0],
+        "interest": [2.5, 2.5, 2.5, 2.5, 2.5]
+    }
+}

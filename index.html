@@ -8,7 +8,7 @@
             name="description"
             content="Calculadora On-Line de Bonos Corporativos Argentinos"
         />
-        <title>Proyecto</title>
+        <title>Home | Bound Calculator</title>
 
         <!-- Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,15 +27,82 @@
         />
 
         <!-- CSS Style-->
-        <link rel="stylesheet" href="./css/styles.css" />
+        <link rel="stylesheet" href="./css/style.min.css" />
     </head>
     <body>
-        <div>
-            <h1>Proyecto Final - JS CoderHouse</h1>
-        </div>
-        <div>
-            <h2>Ver Console Log</h2>
-        </div>
+        <!-- Logo + Navigation bar -->
+        <header class="sticky-top">
+            <nav
+                class="navbar navbar-expand-lg navbar-dark bg-dark navbar--mod"
+            >
+                <div class="container-fluid">
+                    <a
+                        class="navbar-brand d-flex align-items-center"
+                        href="./index.html"
+                    >
+                        <img
+                            class="navbar__home--logo"
+                            src="./assets/icons/logo.svg"
+                            alt="Home page logo"
+                        />
+                        <span
+                            class="navbar__home--title text-uppercase mb-0 p-2"
+                            >Bond Calculator</span
+                        >
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span
+                            class="navbar-toggler-icon navbar-toggler-icon--mod"
+                        ></span>
+                    </button>
+                    <div
+                        class="collapse navbar-collapse"
+                        id="navbarSupportedContent"
+                    >
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link text-uppercase"
+                                    href="./pages/services.html"
+                                    >Services</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link text-uppercase"
+                                    href="./pages/projects.html"
+                                    >Projects</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link text-uppercase"
+                                    href="./pages/about.html"
+                                    >About</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link text-uppercase"
+                                    href="./pages/contact.html"
+                                    >Contact us</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- End Logo + Navigation bar -->
 
         <table class="table table-dark table-striped">
             <thead>
@@ -56,6 +123,122 @@
             </tbody>
         </table>
 
+        <!-- Footer -->
+        <footer class="text-white bg-dark pb-4">
+            <div class="container p-3">
+                <div class="row">
+                    <div class="col-md-12 p-4 text-center">
+                        <p class="text-uppercase fw-bold m-0 h5">
+                            Connect with us
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <section class="footer__socialNetworks">
+                            <div>
+                                <p>Social Media</p>
+                            </div>
+                            <div class="footer__containerSocialNetworks">
+                                <div class="footer__linkSocialNetworks">
+                                    <a
+                                        href="https://www.instagram.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img
+                                            src="./assets/icons/bxl-instagram.svg"
+                                            alt="Instagram"
+                                        />
+                                        <p>Instagram</p>
+                                    </a>
+                                </div>
+                                <div class="footer__linkSocialNetworks">
+                                    <a
+                                        href="https://www.facebook.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img
+                                            src="./assets/icons/bxl-facebook-square.svg"
+                                            alt="Instagram"
+                                        />
+                                        <p>Facebook</p>
+                                    </a>
+                                </div>
+                                <div class="footer__linkSocialNetworks">
+                                    <a
+                                        href="https://www.linkedin.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img
+                                            src="./assets/icons/bxl-linkedin-square.svg"
+                                            alt="Instagram"
+                                        />
+                                        <p>LinkedIn</p>
+                                    </a>
+                                </div>
+                                <div class="footer__linkSocialNetworks">
+                                    <a
+                                        href="https://twitter.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img
+                                            src="./assets/icons/bxl-twitter.svg"
+                                            alt="Instagram"
+                                        />
+                                        <p>Twitter</p>
+                                    </a>
+                                </div>
+                                <div class="footer__linkSocialNetworks">
+                                    <a
+                                        href="https://www.youtube.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img
+                                            src="./assets/icons/bxl-youtube.svg"
+                                            alt="Instagram"
+                                        />
+                                        <p>Youtube</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-md-6">
+                        <section class="footer__address">
+                            <p class="m-0">POWER ENGINEERS, LLC</p>
+                            <p class="m-0">
+                                21550 Oxnard Street Suite 720, Woodland Hills,
+                                CA 91367
+                            </p>
+                            <p class="m-0">818-975-0010</p>
+                            <a class="m-0" href="mailto:info@powerengineers.com"
+                                >info@powerengineers.com</a
+                            >
+                            <div class="m-0">
+                                <a href="./pages/contact.html">
+                                    <button class="squareButton">
+                                        Contact Us
+                                    </button>
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End footer -->
+
+        <!-- Bootstrap JavaScript -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- Scripts -->
         <script src="./js/XIRR.js"></script>
         <script src="./js/moment.js"></script>
         <script src="./js/script.js"></script>

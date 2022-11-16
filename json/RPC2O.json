@@ -1,0 +1,19 @@
+{
+    "typeAsset": "CORP",
+    "description": "Bono corporativo de XXXX",
+    "expiration": "23/03/2023",
+    "paymentCurrency": "USD",
+    "ticker": {
+        "ars": "RPC2O",
+        "usd": "RPC2D"
+    },
+    "lastPrice": {
+        "ars": 0,
+        "usd": 0
+    },
+    "flow": {
+        "date": ["23/03/2022", "23/09/2022", "23/03/2023"],
+        "amort": [0.0, 0.0, 100.0],
+        "interest": [4.38, 4.38, 4.38]
+    }
+}

@@ -1,0 +1,26 @@
+/* About Styles */
+
+.topPage--about {
+    background-image: url("../assets/images/photo-city.jfif");
+}
+
+.titleAbout {
+    text-align: center;
+    margin: 40px;
+
+    h2 {
+        font-size: 50px;
+        font-weight: bold;
+    }
+}
+
+.aboutSection-2__title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.aboutSection-2__list {
+    list-style-type: square;
+}
+
+/* End About styles */
