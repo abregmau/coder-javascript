@@ -34,17 +34,13 @@ class asset {
     calcAdditionalData() {
         this.flow.dateNormalized = [];
         for (let i = 0; i < this.flow.date.length; i++) {
-            this.flow.dateNormalized[i] = moment(
-                this.flow.date[i],
-                "DD/MM/YYYY"
-            );
+            this.flow.dateNormalized[i] = moment(this.flow.date[i], "DD/MM/YYYY");
         }
 
         this.flow.cashFlow = [];
         for (let i = 0; i < this.flow.amort.length; i++) {
             if (todayDate < this.flow.dateNormalized[i]) {
-                this.flow.cashFlow[i] =
-                    this.flow.amort[i] + this.flow.interest[i];
+                this.flow.cashFlow[i] = this.flow.amort[i] + this.flow.interest[i];
             } else {
                 this.flow.cashFlow[i] = 0;
             }
@@ -54,20 +50,17 @@ class asset {
             this.flow.cashFlow.unshift(this.lastPrice.usd * -1);
             this.flow.dateNormalized.unshift(todayDate.clone());
             this.flow.dateNormalized[0].add(moment.duration("48:00:00"));
-
         } else if (this.paymentCurrency == "ARS") {
             this.flow.cashFlow.unshift(this.lastPrice.ars * -1);
             this.flow.dateNormalized.unshift(todayDate.clone());
             this.flow.dateNormalized[0].add(moment.duration("48:00:00"));
-
         }
 
-        this.ytmT2 = (Math.sqrt((XIRR(this.flow.cashFlow, this.flow.dateNormalized)+1))-1)*2*100
+        this.ytmT2 = (Math.sqrt(XIRR(this.flow.cashFlow, this.flow.dateNormalized) + 1) - 1) * 2 * 100;
 
-        if(debug){
-            console.log(this.ticker.usd + ': ' + this.ytmT2 + '%')
+        if (debug) {
+            console.log(this.ticker.usd + ": " + this.ytmT2 + "%");
         }
-
     }
 }
 
@@ -94,14 +87,8 @@ class grupAssets {
         }
 
         for (let property in listAssets) {
-            await fetchDataJSON(
-                "./json/" + listAssets[property] + ".json"
-            ).then((json) => {
-                console.log(
-                    "Success retrieve " +
-                        listAssets[property] +
-                        " from Server Data"
-                );
+            await fetchDataJSON("./json/" + listAssets[property] + ".json").then((json) => {
+                console.log("Success retrieve " + listAssets[property] + " from Server Data");
                 dataAssets = json;
             });
             this.corpBond[listAssets[property]] = new asset(dataAssets);
@@ -121,8 +108,7 @@ class grupAssets {
             T0: false,
             "Content-Type": "application/json",
         };
-        const urlCorpBond =
-            "https://open.bymadata.com.ar/vanoms-be-core/rest/api/bymadata/free/negociable-obligations";
+        const urlCorpBond = "https://open.bymadata.com.ar/vanoms-be-core/rest/api/bymadata/free/negociable-obligations";
 
         //Datos
 
@@ -130,8 +116,7 @@ class grupAssets {
             method: "POST", // or 'PUT'
             headers: {
                 Connection: "keep-alive",
-                "sec-ch-ua":
-                    '" Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"',
+                "sec-ch-ua": '" Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"',
                 Accept: "application/json, text/plain, */*",
                 "Content-Type": "application/json",
                 "sec-ch-ua-mobile": "?0",
