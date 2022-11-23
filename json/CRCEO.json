@@ -9,7 +9,8 @@
     },
     "lastPrice": {
         "ars": 0,
-        "usd": 0
+        "usd": 0,
+        "ccl": 0
     },
     "flow": {
         "date": [

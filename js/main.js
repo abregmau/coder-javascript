@@ -10,7 +10,31 @@ class asset {
     }
 
     getPrice(arrayLiveData) {
-        for (let i = 0; i < arrayLiveData.length; i++) {
+        let findPriceARS = arrayLiveData.find((valor) => valor.symbol == this.ticker.ars);
+
+        if (findPriceARS != undefined) {
+            if (findPriceARS.trade != 0.0) {
+                this.lastPrice.ars = findPriceARS.trade;
+            } else if (findPriceARS.closingPrice != 0.0) {
+                this.lastPrice.ars = findPriceARS.closingPrice;
+            } else {
+                this.lastPrice.ars = findPriceARS.previousClosingPrice;
+            }
+        }
+
+        let findPriceUSD = arrayLiveData.find((valor) => valor.symbol == this.ticker.usd);
+
+        if (findPriceUSD != undefined) {
+            if (findPriceUSD.trade != 0.0) {
+                this.lastPrice.usd = findPriceUSD.trade;
+            } else if (findPriceUSD.closingPrice != 0.0) {
+                this.lastPrice.usd = findPriceUSD.closingPrice;
+            } else {
+                this.lastPrice.usd = findPriceUSD.previousClosingPrice;
+            }
+        }
+
+        /*         for (let i = 0; i < arrayLiveData.length; i++) {
             if (arrayLiveData[i].symbol == this.ticker.ars) {
                 if (arrayLiveData[i].trade != 0.0) {
                     this.lastPrice.ars = arrayLiveData[i].trade;
@@ -28,7 +52,7 @@ class asset {
                     this.lastPrice.usd = arrayLiveData[i].previousClosingPrice;
                 }
             }
-        }
+        } */
     }
 
     calcAdditionalData() {
@@ -55,6 +79,8 @@ class asset {
             this.flow.dateNormalized.unshift(todayDate.clone());
             this.flow.dateNormalized[0].add(moment.duration("48:00:00"));
         }
+
+        this.lastPrice.ccl = this.lastPrice.ars / this.lastPrice.usd;
 
         this.ytmT2 = (Math.sqrt(XIRR(this.flow.cashFlow, this.flow.dateNormalized) + 1) - 1) * 2 * 100;
 
