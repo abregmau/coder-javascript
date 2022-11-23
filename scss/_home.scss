@@ -1,5 +1,21 @@
 /* Home styles */
 
+.panelGeneral {
+    padding: 40px;
+}
+
+.panelGeneral h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.panelGeneral table {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+//Borrar de aca hacia abajo casi todo
 .topPage--home {
     background-image: url("../assets/images/eolic-windmill.jpg");
 }
