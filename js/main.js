@@ -33,26 +33,6 @@ class asset {
                 this.lastPrice.usd = findPriceUSD.previousClosingPrice;
             }
         }
-
-        /*         for (let i = 0; i < arrayLiveData.length; i++) {
-            if (arrayLiveData[i].symbol == this.ticker.ars) {
-                if (arrayLiveData[i].trade != 0.0) {
-                    this.lastPrice.ars = arrayLiveData[i].trade;
-                } else if (arrayLiveData[i].closingPrice != 0.0) {
-                    this.lastPrice.ars = arrayLiveData[i].closingPrice;
-                } else {
-                    this.lastPrice.ars = arrayLiveData[i].previousClosingPrice;
-                }
-            } else if (arrayLiveData[i].symbol == this.ticker.usd) {
-                if (arrayLiveData[i].trade != 0.0) {
-                    this.lastPrice.usd = arrayLiveData[i].trade;
-                } else if (arrayLiveData[i].closingPrice != 0.0) {
-                    this.lastPrice.usd = arrayLiveData[i].closingPrice;
-                } else {
-                    this.lastPrice.usd = arrayLiveData[i].previousClosingPrice;
-                }
-            }
-        } */
     }
 
     calcAdditionalData() {
