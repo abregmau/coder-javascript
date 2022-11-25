@@ -6,7 +6,7 @@
 }
 
 /* Default font */
-body{
+body {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -38,6 +38,16 @@ a {
     cursor: pointer;
 }
 
+.overLinks {
+    color: #FFFFFF8C;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+    &:hover {
+        color: white;
+        cursor: pointer;
+    }
+}
+
 .squareButton {
     padding: 0.8em 1.8em;
     border: 2px solid #C4C4C4;
@@ -67,17 +77,17 @@ a {
         display: block;
         z-index: -1;
     }
-    
+
     &:hover::before {
         width: 150%;
     }
-    
+
     &:hover {
         color: #272727;
     }
 }
 
-.col-center{
+.col-center {
     float: none;
     margin: 0 auto;
 }
@@ -111,11 +121,11 @@ a {
 /* Large devices (laptops/desktops, 992px and down) */
 
 @media (max-width: 992px) {
-    .contents__title{
+    .contents__title {
         font-size: 35px;
     }
 
-    .contents__p{
+    .contents__p {
         font-size: 12px;
     }
 
@@ -131,11 +141,11 @@ a {
 
 @media (max-width: 768px) {
 
-    .contents__title{
+    .contents__title {
         font-size: 30px;
     }
 
-    .contents__p{
+    .contents__p {
         font-size: 10px;
     }
 
@@ -150,11 +160,11 @@ a {
 /* Small devices (portrait tablets and large phones, 600px and down) */
 
 @media (max-width: 600px) {
-    .contents__title{
+    .contents__title {
         font-size: 35px;
     }
 
-    .contents__p{
+    .contents__p {
         font-size: 12px;
     }
 
@@ -167,7 +177,7 @@ a {
     .topPage {
         grid-template-columns: 1fr;
         margin-bottom: 10px;
-        background-attachment:fixed;
+        background-attachment: fixed;
     }
 
 }
