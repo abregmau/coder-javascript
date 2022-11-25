@@ -3,6 +3,9 @@ https://dev.to/duxtech/5-maneras-de-iterar-un-objeto-en-javascript-jkn
 https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/for...in
 https://www.delftstack.com/es/howto/javascript/convert-string-to-date-in-javascript/
 
+Boostrap:
+https://www.w3schools.com/bootstrap5/bootstrap_modal.php
+
 Fetch Java Script (Apis y Jsons):
 https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/for...in
 https://dmitripavlutin.com/javascript-fetch-async-await/
